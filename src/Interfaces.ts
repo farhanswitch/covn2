@@ -5,7 +5,7 @@ export interface IData {
   total_spesimen: number;
   total_spesimen_negatif: number;
 }
-exxport interface IHarianDataValue {
+export interface IHarianDataValue {
   value: number;
 }
 export interface IHarian {
@@ -22,8 +22,8 @@ export interface IHarian {
   key: number;
 }
 export interface IPenambahan extends ITotal {
-	created: string;
- 
+  created: string;
+
   tanggal: string;
 }
 export interface ITotal {
