@@ -4,11 +4,19 @@ import { fetchCovidData } from "../src/fetchData";
 export const getServerSideProps: GetServerSideProps = async () => {
   const dataCovid = await fetchCovidData();
   return {
-    props: { dataCovid: dataCovid.data },
+    props: { dataCovid: dataCovid['data'] },
   };
 };
 const Covid = ({ dataCovid }: ICovid) => {
-  const { penambahan } = dataCovid.update;
+  console.log(dataCovid);
+  const {penambahan} = dataCovid.update;
+  // const penambahan = {
+  //   tanggal : 'a',
+  //   jumlah_positif:1,
+  //   jumlah_dirawat:2,
+  //   jumlah_sembuh:3,
+  //   jumlah_meninggal:4
+  //}
   return (
     <div>
       <p className="text-center">Covid 19 Indonesia</p>

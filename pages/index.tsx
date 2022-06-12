@@ -3,6 +3,7 @@ import Head from "next/head";
 import CarouselComponent from "../src/components/CarouselComponent";
 import { CaseContainer, CaseCard } from "../src/components/Cases";
 import Hero from "../src/components/Hero";
+import Test from "../src/test";
 const Home: NextPage = () => {
   return (
     <div className="w-full ">
@@ -36,6 +37,7 @@ const Home: NextPage = () => {
             Terakhir kali data di-update: 26 Mei 2022
           </span>
         </section>
+        <Test />
         <CarouselComponent />
       </main>
     </div>

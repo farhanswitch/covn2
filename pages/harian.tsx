@@ -1,7 +1,45 @@
-import React from "react";
-import { CaseCard, CaseContainer } from "../src/components/Cases";
+import type {NextPage} from 'next'
+import { GetServerSideProps } from 'next';
+import {useDispatch} from 'react-redux'
 
-const harian: React.FC = () => {
+import { setCovidData } from '../src/app/features/covid/data-covid';
+import {setIsError} from '../src/app/features/error-resp/axios-error'
+import { wrapper } from '../src/app/store';
+import { fetchCovidData } from '../src/fetchData';
+import { CaseCard, CaseContainer } from "../src/components/Cases";
+import { ICovid } from '../src/Interfaces';
+
+export const getServerSideProps = wrapper.getServerSideProps((store) => async () => {
+  const dataState = store.getState();
+  const dataCovid = dataState.covid
+  if(dataCovid.data !== null){
+    console.log(dataCovid.data)
+    return{
+      props:{
+        dataCovid,
+        isError:false
+      }
+    }
+  }
+const dataFromServer = await fetchCovidData();
+
+console.log(dataFromServer)
+return{
+  props:{
+    dataCovid:dataFromServer['data'],
+    isError:dataFromServer.isError
+  }
+}
+
+  
+})
+interface IPropsHarian {
+  dataCovid : ICovid | null,
+  isError : boolean
+}
+const Harian = ({dataCovid,isError}:IPropsHarian) => {
+  console.log(dataCovid)
+  console.error(`Error ${isError}`)
   return (
     <main className="px-2 mb-6">
       <div className="w-full rounded-md my-6 border-blue-700">
@@ -26,4 +64,4 @@ const harian: React.FC = () => {
   );
 };
 
-export default harian;
+export default Harian;
