@@ -12,7 +12,7 @@ export const getServerSideProps = wrapper.getServerSideProps(
     const dataState = store.getState();
     const dataCovid = dataState.covid;
     if (dataCovid.data !== null) {
-      console.log(dataCovid.data);
+      //console.log(dataCovid.data);
       return {
         props: {
           dataCovid,
@@ -22,7 +22,7 @@ export const getServerSideProps = wrapper.getServerSideProps(
     }
     const dataFromServer = await fetchCovidData();
 
-    console.log(dataFromServer);
+    //console.log(dataFromServer);
     setCovidData(dataFromServer["data"]);
     return {
       props: {
@@ -37,8 +37,8 @@ interface IPropsHarian {
   isError: boolean;
 }
 const Harian: NextPage<IPropsHarian> = ({ dataCovid, isError }) => {
-  console.log(dataCovid);
-  console.error(`Error ${isError}`);
+  //console.log(dataCovid);
+  //console.error(`Error ${isError}`);
 
   const arrayHarian = useMemo(() => dataCovid?.update?.harian, [dataCovid]);
   const [date, setDate] = useState<string>("");
