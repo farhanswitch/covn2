@@ -40,7 +40,7 @@ interface IProps {
 }
 export const CaseCard = ({ status, jumlah, isKum }: IProps) => {
   return (
-    <div className="shadow-xl rounded-md p-6 relative grid place-items-center w-[290px] h-[210px] border">
+    <div className="shadow-xl rounded-md p-6 relative mx-auto grid place-items-center w-[290px] h-[210px] border">
       <div className={`${textColors[status as keyof IColor]} text-center`}>
         <p className="grid place-items-center text-xl">
           {icon[status as keyof IIcon]}
@@ -64,7 +64,7 @@ interface IContainerProps {
 }
 export const CaseContainer = ({ children }: IContainerProps) => {
   return (
-    <div className="w-full flex flex-wrap gap-6 justify-evenly px-6">
+    <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-6 px-6">
       {children}
     </div>
   );

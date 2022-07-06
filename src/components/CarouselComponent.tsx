@@ -7,7 +7,7 @@ export default function CarouselComponent() {
         Cara Mencegah Covid-19
       </h2>
       <div className="carousel-wrapper">
-        <Carousel showThumbs={false} autoPlay infiniteLoop>
+        <Carousel showThumbs={false} showStatus={false} autoPlay infiniteLoop>
           <div className="w-[60%] md:w-[30%] h-max mx-auto">
             <img
               className="block mx-auto"
