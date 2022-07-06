@@ -5,6 +5,9 @@ module.exports = {
       colors: {
         herogray: "#fafafa",
       },
+      fontFamily: {
+        inter: "inter",
+      },
     },
   },
   plugins: [],

@@ -6,7 +6,7 @@ interface IProps {
 }
 const Layout = ({ children }: IProps) => {
   return (
-    <div className="w-full min-h-full">
+    <div className="w-full min-h-full font-inter">
       <Nav />
       <main className="min-h-[100vh]">{children}</main>
       <Footer />
