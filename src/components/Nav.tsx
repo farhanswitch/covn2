@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Link from "next/link";
 import { HiOutlineMenuAlt2 } from "react-icons/hi";
 import { AiOutlineClose } from "react-icons/ai";
 const Nav: React.FC = () => {
@@ -19,28 +20,30 @@ const Nav: React.FC = () => {
               <HiOutlineMenuAlt2 className="md:hidden" />
             )}
           </div>
-          <h1 className="font-semibold font-viga tracking-wider">
-            {"<SwitchCOV />"}{" "}
-          </h1>
+          <Link href={"/"}>
+            <h1 className="font-semibold font-viga tracking-wider">
+              {"<SwitchCOV />"}{" "}
+            </h1>
+          </Link>
         </div>
         <ul
           className={`md:flex items-center gap-8 font-sansf sticky md:static mt-4 md:mt-0 w-full md:w-auto z-auto md:z-auto left-0 px-3 py-1 md:p-0 ${
             open ? "block" : "hidden"
           }`}
         >
-          <a href={"/"}>
+          <Link href={"/"}>
             <li className="my-2   md:m-0 cursor-pointer w-full md:w-auto">
               Home
             </li>
-          </a>
-          <a href="{/harian}">
+          </Link>
+          <Link href={"/harian"}>
             <li className="my-2 md:m-0 cursor-pointer md:w-auto">
               Data Harian
             </li>
-          </a>
-          <a href="#contact">
+          </Link>
+          <Link href={"/contact"}>
             <li className="my-2 md:m-0 cursor-pointer md:w-auto">Contact Me</li>
-          </a>
+          </Link>
         </ul>
       </div>
     </nav>
