@@ -36,8 +36,9 @@ const bgColors: IColor = {
 interface IProps {
   status: string;
   jumlah: number;
+  isKum?: boolean;
 }
-export const CaseCard = ({ status, jumlah }: IProps) => {
+export const CaseCard = ({ status, jumlah, isKum }: IProps) => {
   return (
     <div className="shadow-xl rounded-md p-6 relative grid place-items-center w-[290px] h-[210px] border">
       <div className={`${textColors[status as keyof IColor]} text-center`}>
@@ -45,7 +46,9 @@ export const CaseCard = ({ status, jumlah }: IProps) => {
           {icon[status as keyof IIcon]}
         </p>
         <p className="font-bold text-3xl">{jumlah}</p>
-        <p className="text-slate-800 capitalize">{status}</p>
+        <p className="text-slate-800 capitalize">
+          {isKum ? `Jumlah ${status}` : status}
+        </p>
       </div>
       <div
         className={`absolute w-[250px] h-1 ${
